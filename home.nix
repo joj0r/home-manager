@@ -19,6 +19,7 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       # Unfree packages added here
@@ -44,6 +45,10 @@
     python312Full 
     python312Packages.six
     cargo # Installed for rnix_lsp
+
+    # Passwordstore with git-integration
+    pass
+    pass-git-helper
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -102,8 +107,12 @@
       init = {
 	      defaultBranch = "main";
       };
+      credential.helper = "${
+        pkgs.pass-git-helper}/bin/pass-git-helper";
     };
   };
+
+  
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -118,24 +127,22 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/pass-git-helper/git-pass-mapping.ini".text = ''
+      [*github.com/joj0r/*]
+      target=Coding/Github CLI
+      
+      [*github.com/sweco-nojojo/*]
+      target=Jobb/Sweco/Github_CLI
+      
+      [*dev.azure.com*]
+      target=Jobb/Sweco/Git credentials DocumentGenerator-NO
+    '';
   };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/jonas/etc/profile.d/hm-session-vars.sh
-  #
+
   home.sessionVariables = {
     EDITOR = "nvim";
 

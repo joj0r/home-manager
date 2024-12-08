@@ -107,8 +107,11 @@
       init = {
 	      defaultBranch = "main";
       };
-      credential.helper = "${
-        pkgs.pass-git-helper}/bin/pass-git-helper";
+      credential = {
+        helper = "${
+          pkgs.pass-git-helper}/bin/pass-git-helper";
+        useHttpPath = true;
+      };
     };
   };
 

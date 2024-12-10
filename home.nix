@@ -35,7 +35,8 @@
     ledger
     taskwarrior3
     nwg-drawer # App drawer
-  # For autorotation
+
+    # For autorotation
     iio-sensor-proxy
     iio-hyprland # For auto rotation
     # hyprsunset # Blue light filter
@@ -47,8 +48,13 @@
     cargo # Installed for rnix_lsp
 
     # Passwordstore with git-integration
+    gnupg
+    pinentry-tty
     pass
     pass-git-helper
+
+    # To change GTK theme
+    nwg-look
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -72,7 +78,6 @@
     enable = true;
     shellAliases = {
       ll = "ls -alF";
-      vim = "nvim";
 
       # Ledger felles.ledger
       lfbal = "ledger -f felles.ledger bal assets liabilities";
@@ -96,7 +101,10 @@
 
   programs.neovim = {
     enable = true;
+    vimAlias = true;
     extraLuaConfig = lib.fileContents ./init.lua;
+    extraPython3Packages = pyPkgs: with pyPkgs;
+      [ six packaging tasklib ];
   };
 
   programs.git = {
@@ -115,7 +123,7 @@
     };
   };
 
-  
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -155,6 +163,9 @@
 
     # For scaling of GDK apps
     GDK_SCALE = 2;
+    # trying to set dark theeme (failed)
+    GTK_THEME = "Adwaita-dark";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
   # Let Home Manager install and manage itself.

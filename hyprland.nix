@@ -5,7 +5,7 @@
     settings = {
       # Built in display
       monitor = [
-        "eDP-1, preferred,auto, 1.4"
+        "eDP-1, preferred,auto, 1.6"
       # Epson Projector
         "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preffered, 0x-1080, 1.5"
       ];

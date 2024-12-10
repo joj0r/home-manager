@@ -26,6 +26,6 @@ This is work in progress, and I still have lots of configuration left.
 - `nix-collect-garbage --delete-generations 1 2 3` - Delete sesific generations
 
 ### Nixos configuration
-- `nixos-rebuild switch` - Build new generation and switch to it
-- `nixos-rebuild list-generations` - List generations
+- `sudo nixos-rebuild switch` - Build new generation and switch to it
+- `sudo nixos-rebuild list-generations` - List generations
 - `sudo nix-collect-garbage --delete-old` - Delete old generations

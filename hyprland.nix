@@ -5,7 +5,7 @@
     settings = {
       # Built in display
       monitor = [
-        "eDP-1, preferred,auto, 1.6"
+        "eDP-1, preferred,auto, 1.4"
       # Epson Projector
         "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preffered, 0x-1080, 1.5"
       ];
@@ -29,6 +29,10 @@
         "/usr/lib/pam_kwallet_init &"
         "nextcloud &"
         "gammastep-indicator &"
+      ];
+
+      "exec" = [
+        "nwg-drawer -r"
       ];
 
       #####################
@@ -278,14 +282,16 @@
             # swipe up from bottom edge
             ", edge:d:u, exec, wvkbd-mobintl"
 
-            # swipe down from top left edge
+            # nwg-drawer (app-drawer)
             ", edge:t:d, exec, nwg-drawer"
+            ", edge:l:r, exec, nwg-drawer"
 
             # swipe down with 4 fingers
             ", swipe:4:d, killactive"
 
-            # swipe down with 3 fingers
-            ", swipe:3:d, hyprspace"
+            # Hyprspace show and hide
+            ", swipe:3:d, overview:open"
+            ", swipe:3:u, overview:close"
           ];
         };
       };

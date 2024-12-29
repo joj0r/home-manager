@@ -48,9 +48,9 @@
 
   # For adding neccessary lines to /etc/pam.d for auto open
   # kde wallet on login
-  security.pam.services.login = {
-    name = "kwallet";
-    enableKwallet = true;
+  security.pam.services.greetd.kwallet = {
+    enable = true;
+    forceRun = true;
   };
   
 

@@ -36,10 +36,10 @@
     taskwarrior3
     nwg-drawer # App drawer
 
-    # For autorotation
-    iio-sensor-proxy
-    iio-hyprland # For auto rotation
-    # hyprsunset # Blue light filter
+    # For clipboard support
+    wl-clipboard
+
+    hyprsunset # Blue light filter
     spotify # Needs unfree set
 
     # Installed for wimwiki
@@ -55,6 +55,8 @@
 
     # To change GTK theme
     nwg-look
+
+    libreoffice
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -84,7 +86,7 @@
       lfbud = "ledger -f felles.ledger budget -p \"this month\" exp";
 
       # Ledger regnskap.ledger
-      lrbal = "ledger -f regnskap.ledger bal (assets liabilities klatrekort) and not (Pensjon or PetraAsk) -V";
+      lrbal = ''ledger -f regnskap.ledger bal \(assets liabilities klatrekort\) and not \(Pensjon or PetraAsk\) -V'';
       lrbud = "ledger -f regnskap.ledger budget -p \"this month\" exp";
 
 

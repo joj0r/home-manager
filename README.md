@@ -6,7 +6,7 @@ This is work in progress, and I still have lots of configuration left.
 ## Things to do
 
 ### To have a fully functional Surface
-* [ ] Set up virtual keyboard to enable use without physical keyboard  #042f5b7d
+* [X] Set up virtual keyboard to enable use without physical keyboard  #042f5b7d
 * [ ] Set up HyprGrass with relevant programs etc.  #068791fd
 * [ ] Configure media-keys to work with sound, screenbacklight and hyprsunset  #f1ca7129
 * [ ] Configure hypridle to quicly and easily suspend  #a3bf6066

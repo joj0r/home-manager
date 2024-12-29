@@ -5,7 +5,7 @@
     settings = {
       # Built in display
       monitor = [
-        "eDP-1, preferred,auto, 1.6"
+        "eDP-1, preferred,auto, 1.25"
       # Epson Projector
         "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preffered, 0x-1080, 1.5"
       ];
@@ -26,13 +26,16 @@
 
       "exec-once" = [
         "waybar &"
-        "/usr/lib/pam_kwallet_init &"
+        "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init &"
+        # "/nix/store/liqlixjsd95qzxaqsbxy11hxv9hzb41h-kwallet-pam-6.2.4/libexec/pam_kwallet_init &"
         "nextcloud &"
         "gammastep-indicator &"
+        "wvkbd-mobintl -L 200 -H 200 --hidden &"
       ];
 
       "exec" = [
-        "nwg-drawer -r"
+        "hyprsunset -t 5000 &"
+        "nwg-drawer -r &"
       ];
 
       #####################
@@ -279,8 +282,9 @@
             # swipe left from right edge
             ", edge:r:l, workspace, +1"
 
-            # swipe up from bottom edge
-            ", edge:d:u, exec, wvkbd-mobintl"
+            # Virtual keyboard
+            ", edge:d:u, exec, pkill -SIGUSR2 wvkbd-mobintl"
+            ", edge:l:rd, exec, pkill -SIGUSR1 wvkbd-mobintl"
 
             # nwg-drawer (app-drawer)
             ", edge:t:d, exec, nwg-drawer"

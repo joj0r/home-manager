@@ -27,6 +27,7 @@
       "exec-once" = [
         "waybar &"
         "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init &"
+        "kwalletd6 &"
         # "/nix/store/liqlixjsd95qzxaqsbxy11hxv9hzb41h-kwallet-pam-6.2.4/libexec/pam_kwallet_init &"
         "nextcloud &"
         "gammastep-indicator &"

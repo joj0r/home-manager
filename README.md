@@ -14,8 +14,8 @@ This is work in progress, and I still have lots of configuration left.
 * [ ] Set up touch-friendly slides for volume, backlight and hyprsunset  #2458f4c0
 
 ### To be good enough to move to NixOS on my XPS-13
-* [ ] Get autoopen kWallet to work for NextCloud client  #923f6dd1
-* [ ] Configure LSP that works in Neovim  #44267c56
+* [X] Get autoopen kWallet to work for NextCloud client  #923f6dd1
+* [X] Configure LSP that works in Neovim  #44267c56
 
 ## Relevant commands:
 
@@ -29,3 +29,7 @@ This is work in progress, and I still have lots of configuration left.
 - `sudo nixos-rebuild switch` - Build new generation and switch to it
 - `sudo nixos-rebuild list-generations` - List generations
 - `sudo nix-collect-garbage --delete-old` - Delete old generations
+
+### Nix-shell
+- `nix-shell -p [packages to install]` - Run shell with temporaryliy installed packages
+- `nix-collect-garbage` - Clean up after nix-shell

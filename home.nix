@@ -58,6 +58,10 @@
 
     libreoffice
 
+    # For developing
+    ripgrep # For telecope in nvim
+    fd # For telecope in nvim
+
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -97,7 +101,7 @@
       bw = "bluetoothctl connect F8:4E:17:45:41:43";
       
       # Geneva Touring s
-      bt = "bluetoothctl connect 00:02:5B:00:B0:CC'";
+      bt = "bluetoothctl connect 00:02:5B:00:B0:CC";
     };
   };
 
@@ -107,6 +111,9 @@
     extraLuaConfig = lib.fileContents ./init.lua;
     extraPython3Packages = pyPkgs: with pyPkgs;
       [ six packaging tasklib ];
+    plugins = [
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    ];
   };
 
   programs.git = {

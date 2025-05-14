@@ -61,6 +61,8 @@
     # For developing
     ripgrep # For telecope in nvim
     fd # For telecope in nvim
+    lazygit
+    starship
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -103,13 +105,13 @@
       # Geneva Touring s
       bt = "bluetoothctl connect 00:02:5B:00:B0:CC";
     };
-    bashrcExtra = lib.fileContents ~/dotfiles/.bashrc-arch;
+    bashrcExtra = lib.fileContents ~/dotfiles/bash/bashrc-arch;
   };
 
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    extraLuaConfig = lib.fileContents ./init.lua;
+    extraLuaConfig = lib.fileContents /home/jonas/dotfiles/nvim/init.lua;
     extraPython3Packages = pyPkgs: with pyPkgs;
       [ six packaging tasklib ];
     plugins = [

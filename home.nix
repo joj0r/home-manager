@@ -103,6 +103,7 @@
       # Geneva Touring s
       bt = "bluetoothctl connect 00:02:5B:00:B0:CC";
     };
+    bashrcExtra = lib.fileContents ~/dotfiles/.bashrc-arch;
   };
 
   programs.neovim = {

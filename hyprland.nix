@@ -254,16 +254,17 @@
       # See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
 
       windowrule = [
-        "float, nextcloud"
-        "move 100%-w-10 3%, nextcloud"
-      
-      # Do not have to filter on title, the rules do not apply to tiled windows
-        "center, blender"
-        "size 50% 50%, blender"
       ];
       
-      # Thunderbird notification
       windowrulev2 = [
+        "float, title:(nextcloud)"
+        "move 100%-w-10 3%, title:(nextcloud)"
+      
+      # Do not have to filter on title, the rules do not apply to tiled windows
+        # "center, blender"
+        # "size 50% 50%, blender"
+
+      # Thunderbird notification
         "float, class:(thunderbird), title:(^$)"
         "move 100%-w-10 80%, class:(thunderbird), title:(^$)"
       

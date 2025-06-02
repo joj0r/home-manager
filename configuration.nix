@@ -101,10 +101,10 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -134,6 +134,13 @@
     waybar
     xfce.thunar # File manager
     wofi # Ctrl - R
+
+    # For audio control
+    pamixer
+    playerctl
+
+    # For controlling brightness
+    brightnessctl
 
     # Passwordstore with git-integration
     gnupg
@@ -175,7 +182,7 @@
 
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.hack
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

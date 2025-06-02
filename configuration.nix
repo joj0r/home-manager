@@ -7,7 +7,6 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      # <nixos-hardware/microsoft/surface/surface-go>
       ./hardware-configuration.nix
       # Neovim system wide config
       /home/jonas/.config/home-manager/systemnvim.nix
@@ -23,7 +22,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "surface"; # Define your hostname.
+  networking.hostName = "xps13"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -97,9 +96,6 @@
     waybar
     xfce.thunar # File manager
     wofi # Ctrl - R
-    wvkbd # On Screen Keyboard
-    iio-hyprland # auto-rotate screen
-    iio-sensor-proxy # Proxy for sendin IIO sensor data to D-Bus
 
     # Passwordstore with git-integration
     gnupg
@@ -185,7 +181,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
 

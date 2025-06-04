@@ -257,8 +257,8 @@
       ];
       
       windowrulev2 = [
-        "float, title:(nextcloud)"
-        "move 100%-w-10 3%, title:(nextcloud)"
+        "float, class:(.*)(nextcloud)(.*)"
+        "move 100%-w-10 3%, class:(.*)(nextcloud)(.*)"
       
       # Do not have to filter on title, the rules do not apply to tiled windows
         # "center, blender"

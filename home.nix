@@ -60,7 +60,8 @@
     ripgrep # For telecope in nvim
     fd # For telecope in nvim
     lazygit
-    starship
+    starship # command prompt
+    jq # JSON utils
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

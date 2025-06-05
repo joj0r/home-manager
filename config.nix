@@ -163,6 +163,10 @@ in
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
+    settings = {
+      max-cache-ttl 60480000
+      default-cache-ttl 60480000
+    }
   };
 
   fonts.packages = with pkgs; [

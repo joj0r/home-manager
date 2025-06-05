@@ -125,6 +125,8 @@
       init = {
 	      defaultBranch = "main";
       };
+      merge = { tool = "vimdiff"; };
+      mergetool = { path = "nvim"; };
       credential = {
         helper = "${
           pkgs.pass-git-helper}/bin/pass-git-helper";

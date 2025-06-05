@@ -19,6 +19,11 @@
     powerOnBoot = true; # powers up the default Bluetooth controller on boot
   };
 
+  #ZFS
+  boot.supportedFilesystems = ["zfs"];
+  boot.zfs.forceImportRoot = false;
+  networking.hostId = "cafb8f5f";
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

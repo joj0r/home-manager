@@ -69,10 +69,10 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -105,6 +105,13 @@
     wvkbd # On Screen Keyboard
     iio-hyprland # auto-rotate screen
     iio-sensor-proxy # Proxy for sendin IIO sensor data to D-Bus
+
+    # For audio control
+    pamixer
+    playerctl
+
+    # For controlling brightness
+    brightnessctl
 
     # Passwordstore with git-integration
     gnupg
@@ -146,7 +153,7 @@
 
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.hack
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

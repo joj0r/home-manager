@@ -103,7 +103,7 @@
       # Geneva Touring s
       bt = "bluetoothctl connect 00:02:5B:00:B0:CC";
     };
-    bashrcExtra = lib.fileContents ~/dotfiles/bash/bashrc-arch;
+    bashrcExtra = lib.fileContents /home/jonas/dotfiles/bash/bashrc-arch;
   };
 
   programs.neovim = {
@@ -128,8 +128,7 @@
       merge = { tool = "vimdiff"; };
       mergetool = { path = "nvim"; };
       credential = {
-        helper = "${
-          pkgs.pass-git-helper}/bin/pass-git-helper";
+        helper = "${pkgs.pass-git-helper}/bin/pass-git-helper";
         useHttpPath = true;
       };
     };

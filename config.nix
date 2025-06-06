@@ -8,7 +8,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # Neovim system wide config
-      # ./systemnvim.nix
+      ./systemnvim.nix
       (import "${home-manager}/nixos")
     ];
 

@@ -6,9 +6,9 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
       # Neovim system wide config
-      /home/jonas/.config/home-manager/systemnvim.nix
+      # ./systemnvim.nix
       (import "${home-manager}/nixos")
     ];
 

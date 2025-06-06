@@ -53,7 +53,7 @@ nixos-generate-config --root /mnt
   2. add `./config.nix` to imports
 5. Install
 ```bash
-nixos-instal
+nixos-install
   
 nixos-enter --root /mnt -c 'passwd jonas'
 ```

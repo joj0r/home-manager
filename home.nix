@@ -149,16 +149,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/pass-git-helper/git-pass-mapping.ini".text = ''
-      [*github.com/joj0r/*]
-      target=Coding/Github CLI
-      
-      [*github.com/sweco-nojojo/*]
-      target=Jobb/Sweco/Github_CLI
-      
-      [*dev.azure.com*]
-      target=Jobb/Sweco/Git credentials DocumentGenerator-NO
-    '';
+
+    ".config/pass-git-helper/git-pass-mapping.ini".source = dotfiles/git-pass-mapping.ini;
   };
 
   # Home Manager can also manage your environment variables through

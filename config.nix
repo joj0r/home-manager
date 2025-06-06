@@ -93,10 +93,31 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  security.sudo.extraRules = [
+  	{
+		users = ["jonas"];
+		commands = [
+			{
+			command = "/run/current-system/sw/bin/nixos-rebuild";
+			options = [ "NOPASSWD" ];
+			}
+		];
+	}
+  ];
+
+  users.groups = {
+    nixos = { 
+      gid = 1000; 
+    };
+  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jonas = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "nixos" ]; 
+  };
+
+  users.users.root = {
+    extraGroups = [ "nixos" ];
   };
 
   home-manager.users.jonas = import ./home.nix;

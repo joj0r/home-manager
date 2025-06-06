@@ -1,0 +1,148 @@
+# [Created by task 2.6.1 2/22/2023 10:59:38]
+# Taskwarrior program configuration file.
+# For more documentation, see https://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# You can also refence environment variables:
+#   variable=$HOME/task
+#   variable=$VALUE
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+# data.location=/home/jonas/.task
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+#taskd.certificate=~/.task/private.certificate.pem
+#taskd.key=~/.task/private.key.pem
+#taskd.ca=~/.task/ca.cert.pem
+#taskd.server=inthe.am:53589
+#taskd.credentials=inthe_am/jonas.jrgensen/577a260f-cd5e-447a-82d1-c891136ce792
+#taskd.trust=strict
+
+color.blocking=white on gray5
+color.due=red on gray5
+
+uda.priority.values=H,M,,L
+news.version=2.6.0
+weekstart=monday
+
+# Config for review with tasksh
+uda.reviewed.type							= date
+uda.reviewed.label						= Reviewed
+report._reviewed.description	= Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns			= uuid
+report._reviewed.sort					= reviewed+,modified+
+report._reviewed.filter				= ( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+
+# in-report for inbox
+report.in.columns				= id,description
+report.in.description		= Inbox
+report.in.filter				= status:pending +in -BLOCKED limit:page
+report.in.labels				= ID,Description
+
+# someday-report
+#report.someday.columns			= id,description
+#report.someday.description	= Someday/Maybe
+#report.someday.filter				= status:pending limit:page (+someday)
+#report.someday.labels				= ID,Description
+
+# timer-report
+report.timer.columns			= id,description
+report.timer.description	= Tasks for timeføring
+report.timer.filter				= status:pending limit:page (+timer)
+report.timer.labels				= ID,Description
+
+# 30daybuylist-report
+report.buylist.columns			= id,entry.age,description,due.relative
+report.buylist.description	= Tasks for 30 dagers kjøpeliste
+report.buylist.filter				= status:pending +buylist limit:page
+report.buylist.labels				= ID,Age,Description,Due
+
+# proitems-report
+report.proitems.columns			= id,project,description
+report.proitems.description = Prosjektliste med tasks
+report.proitems.labels			= ID,Prosjekt,Description
+report.proitems.sort				= project+\/,entry+
+report.proitems.filter			= status:pending project
+
+# Estimate
+uda.estimate.type=numeric
+uda.estimate.label=Estimate
+
+# Modifying the next-report
+report.next.filter 			= status:pending -buylist -in (+next or +WEEK or +OVERDUE or scheduled.before:today)
+report.next.columns 		= id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,estimate,urgency
+report.next.sort				=	urgency-
+report.next.labels 			=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Est,Urg
+
+# Urgency configuration
+urgency.uda.priority.L.coefficient = 0 # Low should have lower urgency than default
+urgency.uda.priority..coefficient = 1.8 
+urgency.due.coefficient            = 15.0 # overdue or near due date
+urgency.user.tag.next.coefficient  = 0.0 # +next tag
+urgency.user.tag.@work.coefficient = 10.0 # +@work tag
+urgency.user.tag.@home.coefficient = 10.0 # +@home tag
+urgency.project.coefficient        = 0.0 # assigned to any project
+urgency.tags.coefficient           = 0.0 # has tags
+urgency.user.project.Klimagass.coefficient	= 0.0
+urgency.inherit                    = on # dependent tasks inherit urgency from parent
+
+# Periodic syncinc when taskwarrior-tui is running
+uda.taskwarrior-tui.background_process=task sync
+uda.taskwarrior-tui.background_process_period=60
+
+# Contexts
+
+## Work
+context.today.read=status:pending -buylist -in (+TODAY or +OVERDUE or scheduled.before:today)
+context.week.read=status:pending -buylist -in (+WEEK or +OVERDUE or schedule.before:week)
+# context.work.read=-home -@home -buylist -@ledger
+# context.work.write=+work
+### @Work
+# context.@work.read=(-home -@home -buylist -@ledger) or +@work
+
+## Privat
+### Når jeg er hjemme
+### Når jeg er hjemme alene
+# context.@home.read=project.not:Mikrohus -@maxbo -@bil -@solo (+@home or +home)
+# context.@home.write=+home
+# context.@solo.read=+@solo
+# context.@solo.write=+home
+### Alle personlige ting
+### Når jeg vil jobbe med pc
+### Ting som skal på mobil-liste
+# context.home.read=+home
+# context.home.write=+home
+# context.@pc.read=+@pc or pro:Server or pro:Arch
+# context.@mob.read=+@mob
+
+## All tasks that can be done anywhere
+# context.reise.read=-@home -work -@maxbo
+

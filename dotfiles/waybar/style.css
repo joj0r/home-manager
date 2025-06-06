@@ -1,0 +1,100 @@
+* {
+    border: none;
+    border-radius: 10;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    background: transparent;
+}
+
+window#waybar {
+    color: white;
+    padding-top: 5px;
+}
+
+window#waybar.modules-right {
+    padding: 0 20px;
+}
+
+.modules-right {
+    border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+  background: black;
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    padding: 0 10px 0 7px;
+    margin: 0 2px;
+    background: transparent;
+    color: rgba(100, 114, 125, 0.5);
+}
+
+#workspaces button.active {
+    color: white;
+}
+
+#custom-media {
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    padding: 0 10px;
+}
+
+#window {
+    padding: 0 5px;
+    border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+#pulseaudio {
+    padding: 0 10px 0 5px;
+}
+
+#mode, #battery, #idle_inhibitor, #network, #backlight, #tray {
+    padding: 0 5px;
+}
+#clock {
+    padding: 0 5px;
+    border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#battery.charging {
+    color: #26A65B;
+}
+
+#custom-power {
+    padding: 0 5px;
+}
+
+#custom-quit, #custom-lock, #custom-reboot {
+    padding: 0 5px;
+}
+
+#group-power {
+    padding: 0 10px 0 0;
+}
+
+
+@keyframes blink {
+    to {
+        color: #f53c3c;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

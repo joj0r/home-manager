@@ -142,7 +142,19 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
+    ".taskrc".source = dotfiles/taskrc;
+
     ".config/pass-git-helper/git-pass-mapping.ini".source = dotfiles/git-pass-mapping.ini;
+
+    # Waybar
+    ".config/waybar/config.jsonc".source = dotfiles/waybar/config.jsonc;
+    ".config/waybar/style.css".source = dotfiles/waybar/style.css;
+    ".config/waybar/power_menu.xml".source = dotfiles/waybar/power_menu.xml;
+
+    # Kitty
+    ".config/kitty/kitty.conf".source = dotfiles/kitty/kitty.conf;
+    ".config/kitty/pass_keys.py".source = dotfiles/kitty/pass_keys.py;
+
   };
 
   # Home Manager can also manage your environment variables through

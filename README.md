@@ -54,7 +54,7 @@ nixos-generate-config --root /mnt
 5. Install
 ```bash
 nixos-instal
-
+  
 nixos-enter --root /mnt -c 'passwd jonas'
 ```
 8. After install, configure
@@ -64,6 +64,11 @@ git clone <pass-url> ~/.password-store
 
 # Import gpg-keys
 gpg --import /path/to/subkey
+
+# Change group ownership of /etc/nixos
+sudo chown -hR :nixos /etc/nixos/
+# Add write permission to group
+sudo chmod g+w {.,}*
 ```
 
 ## Relevant commands:

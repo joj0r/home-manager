@@ -43,25 +43,22 @@ mount /dev/disk/by-label/boot /mnt/boot
 ```
 3. Get config
 ```bash
-git clone https://github.com/joj0r/home-manager.git ~/.config/
+git clone https://github.com/joj0r/nixos.git ~/.config/
 
+# Generate configs
+nixos-generate-config --root /mnt
 ```
-1. Edit configuration.nix:
+4. Edit configuration.nix:
   1. comment out bootloader config
   2. add `./config.nix` to imports
-2. After install, configure
+5. Install
 ```bash
-# Clone this repo with config files
-git clone https://github.com/joj0r/home-manager.git ~/.config/
+nixos-instal
 
-# Link configuration.nix (NB: Merge first)
-ln -sf /home/jonas/.config/home-manager/configuration.nix /etc/nixos/configuration.nix
-
-# Install home-manager standalone
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manger>' -A install
-
+nixos-enter --root /mnt -c 'passwd jonas'
+```
+8. After install, configure
+```bash
 # Fetch pass database
 git clone <pass-url> ~/.password-store
 

@@ -118,6 +118,7 @@
     ];
   };
 
+
   programs.git = {
     enable = true;
     userName = "Jonas Stene";
@@ -132,6 +133,7 @@
         helper = "${pkgs.pass-git-helper}/bin/pass-git-helper";
         useHttpPath = true;
       };
+      safe.directory = "/etc/nixos/";
     };
   };
 

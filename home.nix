@@ -107,6 +107,7 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    defaultEditor = true;
     extraLuaConfig = lib.fileContents /home/jonas/dotfiles/nvim/init.lua;
     extraPython3Packages = pyPkgs: with pyPkgs;
       [ six packaging tasklib ];
@@ -158,7 +159,6 @@
   # shell provided by Home Manager. If you don't want to manage your shell
 
   home.sessionVariables = {
-    EDITOR = "nvim";
 
     # Hyprland envs
     XCURSOR_SIZE = 24;

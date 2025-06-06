@@ -40,9 +40,6 @@
     hyprsunset # Blue light filter
     spotify # Needs unfree set
 
-    # Installed for wimwiki
-    python312Full 
-    python312Packages.six
     cargo # Installed for rnix_lsp
 
     # Passwordstore with git-integration

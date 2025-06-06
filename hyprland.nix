@@ -308,4 +308,22 @@
       pkgs.hyprlandPlugins.hyprspace
     ];
   };
+
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      input-field = [
+        {
+          monitor = "";
+          fade_on_empty = false;
+        }
+      ];
+      
+      background = [
+        {
+          color = "rgb(23, 39, 41)";
+        }
+      ];
+    };
+  };
 }

@@ -50,7 +50,7 @@ nixos-generate-config --root /mnt
 ```
 4. Edit configuration.nix:
   1. comment out bootloader config
-  2. add `./config.nix` to imports
+  2. add `./config-[xps|wsl].nix` to imports
 5. Install
 ```bash
 nixos-install

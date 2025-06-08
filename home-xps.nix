@@ -52,7 +52,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = lib.fileContents /home/jonas/dotfiles/nvim/init.lua;
+    extraLuaConfig = lib.fileContents dotfiles/nvim/init-xps.lua;
   };
 
 

@@ -1,10 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./hyprland.nix
-  ];
-
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jonas";
@@ -15,24 +11,15 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify"
-  ];
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    tree
-    nextcloud-client
-    bitwarden-desktop
+    tree # List dir as tree
     ledger
     taskwarrior3
 
     # For clipboard support
     wl-clipboard
-
-    hyprsunset # Blue light filter
-    spotify # Needs unfree set
 
     cargo # Installed for rnix_lsp
 
@@ -40,11 +27,6 @@
     pinentry-tty
     pass
     pass-git-helper
-
-    # To change GTK theme
-    nwg-look
-
-    libreoffice
 
     # For developing
     ripgrep # For telecope in nvim
@@ -71,33 +53,13 @@
     enable = true;
     shellAliases = {
       ll = "ls -alF";
-
-      # Ledger felles.ledger
-      lfbal = "ledger -f felles.ledger bal assets liabilities";
-      lfbud = "ledger -f felles.ledger budget -p \"this month\" exp";
-
-      # Ledger regnskap.ledger
-      lrbal = ''ledger -f regnskap.ledger bal \(assets liabilities klatrekort\) and not \(Pensjon or PetraAsk\) -V'';
-      lrbud = "ledger -f regnskap.ledger budget -p \"this month\" exp";
-
-
-      # Bluetooth connect SRS-XB3
-      bs = "bluetoothctl connect FC:A8:9A:21:44:EF";
-
-      # WH-1000XM4
-      bw = "bluetoothctl connect F8:4E:17:45:41:43";
-      
-      # Geneva Touring s
-      bt = "bluetoothctl connect 00:02:5B:00:B0:CC";
     };
-    bashrcExtra = lib.fileContents /home/jonas/dotfiles/bash/bashrc-arch;
   };
 
   programs.neovim = {
     enable = true;
     vimAlias = true;
     defaultEditor = true;
-    extraLuaConfig = lib.fileContents /home/jonas/dotfiles/nvim/init.lua;
     extraPython3Packages = pyPkgs: with pyPkgs;
       [ six packaging tasklib ];
     plugins = [
@@ -144,12 +106,6 @@
 
     ".config/pass-git-helper/git-pass-mapping.ini".source = dotfiles/git-pass-mapping.ini;
 
-    # Waybar
-    ".config/waybar/config.jsonc".source = dotfiles/waybar/config.jsonc;
-    ".config/waybar/style.css".source = dotfiles/waybar/style.css;
-    ".config/waybar/power_menu.xml".source = dotfiles/waybar/power_menu.xml;
-    ".config/waybar/mediaplayer.py".source = dotfiles/waybar/mediaplayer.py;
-
     # Kitty
     ".config/kitty/kitty.conf".source = dotfiles/kitty/kitty.conf;
     ".config/kitty/pass_keys.py".source = dotfiles/kitty/pass_keys.py;
@@ -165,15 +121,6 @@
 
   home.sessionVariables = {
 
-    # Hyprland envs
-    XCURSOR_SIZE = 24;
-    HYPRCURSOR_SIZE = 20;
-
-    # For scaling of GDK apps
-    GDK_SCALE = 2;
-    # trying to set dark theeme (failed)
-    GTK_THEME = "Adwaita-dark";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
   # Let Home Manager install and manage itself.

@@ -153,6 +153,9 @@
     ".config/kitty/kitty.conf".source = dotfiles/kitty/kitty.conf;
     ".config/kitty/pass_keys.py".source = dotfiles/kitty/pass_keys.py;
 
+    # Tmux
+    ".tmux.conf".source = dotfiles/tmux.conf;
+
   };
 
   # Home Manager can also manage your environment variables through

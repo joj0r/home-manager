@@ -148,6 +148,7 @@
     ".config/waybar/config.jsonc".source = dotfiles/waybar/config.jsonc;
     ".config/waybar/style.css".source = dotfiles/waybar/style.css;
     ".config/waybar/power_menu.xml".source = dotfiles/waybar/power_menu.xml;
+    ".config/waybar/mediaplayer.py".source = dotfiles/waybar/mediaplayer.py;
 
     # Kitty
     ".config/kitty/kitty.conf".source = dotfiles/kitty/kitty.conf;

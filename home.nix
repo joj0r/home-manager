@@ -27,7 +27,6 @@
     bitwarden-desktop
     ledger
     taskwarrior3
-    nwg-drawer # App drawer
 
     # For clipboard support
     wl-clipboard
@@ -38,7 +37,6 @@
     cargo # Installed for rnix_lsp
 
     # Passwordstore with git-integration
-    gnupg
     pinentry-tty
     pass
     pass-git-helper

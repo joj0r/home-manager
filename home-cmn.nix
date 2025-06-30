@@ -18,6 +18,8 @@
     ledger
     taskwarrior3
 
+    nyxt # Hackers web browser
+
     # For clipboard support
     wl-clipboard
 
@@ -62,8 +64,8 @@
     defaultEditor = true;
     extraPython3Packages = pyPkgs: with pyPkgs;
       [ six packaging tasklib ];
-    plugins = [
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    plugins = with pkgs.vimPlugins; [
+      nvim-treesitter.withAllGrammars
     ];
   };
 
@@ -120,7 +122,6 @@
   # shell provided by Home Manager. If you don't want to manage your shell
 
   home.sessionVariables = {
-
   };
 
   # Let Home Manager install and manage itself.

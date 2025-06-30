@@ -24,6 +24,8 @@
 
     libreoffice
 
+    ungoogled-chromium
+
   ];
 
   programs.bash = {

@@ -82,6 +82,10 @@ in
     nerd-fonts.hack
   ];
 
+  environment.variables = {
+    MANPAGER = "nvim + Man!";
+  };
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

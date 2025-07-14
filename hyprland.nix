@@ -8,6 +8,8 @@
         # "eDP-1, preferred,auto, 1.25"
       # Epson Projector
         "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preffered, 0x-1080, 1.5"
+      # Samsung 34" UWHD
+        "desc:Samsung Electric Company LS34A650U H4ZT703205, 3440x1440@59.97, 0x-1440, 1"
       ];
 
       ###################

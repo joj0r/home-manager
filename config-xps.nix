@@ -2,6 +2,7 @@
 {
   imports =
     [
+      <nixos-hardware/dell/xps/13-9360>
       # Neovim system wide config
       ./config-cmn.nix
     ];

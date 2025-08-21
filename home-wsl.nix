@@ -46,6 +46,7 @@
   # plain files is through 'home.file'.
   home.file = {
 
+  ".npmrc".source = dotfiles/npmrc;
 
   };
 

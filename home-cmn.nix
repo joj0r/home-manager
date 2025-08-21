@@ -17,6 +17,8 @@
     tree # List dir as tree
     ledger
     taskwarrior3
+    # terminal file browser
+    yazi
 
     nyxt # Hackers web browser
 

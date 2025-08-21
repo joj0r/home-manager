@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 #
-source ~/.bash-secrets
+# source ~/.bash-secrets
 
 export EDITOR='nvim'
 export LEDGER_FILE='~/.task/timer/timer.ldg'
@@ -10,6 +10,7 @@ export LEDGER_FILE='~/.task/timer/timer.ldg'
 export PATH=~/.local/bin:$PATH
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
+export KITTY_DISABLE_WAYLAND=1
 
 # To fix warning in npm
 # export NODE_OPTIONS='--disable-warning=ExperimentalWarning'
@@ -19,9 +20,6 @@ case $- in
     *i*) ;;
       *) return;;
 esac
-
-# Set up Node Version Manager
-source /usr/share/nvm/init-nvm.sh
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

@@ -71,7 +71,7 @@ in
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    # pinentryPackage = pkgs.pinentry-curses;
     settings = {
       max-cache-ttl = 60480000;
       default-cache-ttl = 60480000;

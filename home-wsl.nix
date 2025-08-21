@@ -14,6 +14,25 @@
 
   ];
 
+  programs.git = {
+    enable = true;
+    userName = "Jonas Stene";
+    userEmail = "jonas.stene@sweco.no";
+    extraConfig = {
+      init = {
+	      defaultBranch = "main";
+      };
+      merge = { tool = "vimdiff"; };
+      mergetool = { path = "nvim"; };
+      credential = {
+        helper = "${pkgs.pass-git-helper}/bin/pass-git-helper";
+        useHttpPath = true;
+      };
+      safe.directory = "/etc/nixos/";
+    };
+  };
+
+
   programs.bash = {
     bashrcExtra = lib.fileContents ./dotfiles/bash/bashrc-wsl;
   };

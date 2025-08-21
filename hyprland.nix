@@ -1,5 +1,28 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    # For login screen
+    cage
+    greetd.regreet
+
+    # Pkgs for Hyprland
+    waybar
+    xfce.thunar # File manager
+    wofi # Ctrl - R
+
+    # For audio control
+    pamixer
+    playerctl
+
+    # For controlling brightness
+    brightnessctl
+
+    # For Nextcloud autologin and storing NC password
+    kdePackages.kwallet
+    kdePackages.kwallet-pam
+    kdePackages.kwalletmanager
+
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -7,9 +30,10 @@
       monitor = [
         # "eDP-1, preferred,auto, 1.25"
       # Epson Projector
-        "desc:Seiko Epson Corporation EPSON PJ 0x01010101, preffered, 0x-1080, 1.5"
+#        "desc:Seiko Epson Corporation EPSON PJ 0x01010101, prefered, 0x-1080, 1.5"
       # Samsung 34" UWHD
-        "desc:Samsung Electric Company LS34A650U H4ZT703205, 3440x1440@59.97, 0x-1440, 1"
+        #"desc:Samsung Electric Company LS34A650U H4ZT703205, 3440x1440@99.98, auto, 1"
+        "DP-1, 3440x1440@99.98, auto, 1"
       ];
 
       ###################
@@ -327,5 +351,58 @@
         }
       ];
     };
+  };
+  # For adding neccessary lines to /etc/pam.d for auto open
+  # kde wallet on login
+  security.pam.services.greetd.kwallet = {
+    enable = true;
+    forceRun = true;
+  };
+  security.pam.services.hyprlock = {};
+
+  # Greetd for loging in
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "cage -s -- regreet";
+        user = "greeter";
+      };
+    };
+  };
+  # ReGreet as login manager. 
+  programs.regreet = {
+    enable = true;
+    settings = {
+      GTK = {
+        application_prefer_dark_theme = true;
+      };
+    };
+  };
+  home.file = {
+
+    Waybar
+    ".config/waybar/config.jsonc".source = dotfiles/waybar/config.jsonc;
+    ".config/waybar/style.css".source = dotfiles/waybar/style.css;
+    ".config/waybar/power_menu.xml".source = dotfiles/waybar/power_menu.xml;
+    ".config/waybar/mediaplayer.py".source = dotfiles/waybar/mediaplayer.py;
+
+  };
+
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. These will be explicitly sourced when using a
+  # shell provided by Home Manager. If you don't want to manage your shell
+
+  home.sessionVariables = {
+
+    Hyprland envs
+    XCURSOR_SIZE = 24;
+    HYPRCURSOR_SIZE = 20;
+
+    # For scaling of GDK apps
+    GDK_SCALE = 2;
+    # trying to set dark theeme (failed)
+    GTK_THEME = "Adwaita-dark";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 }

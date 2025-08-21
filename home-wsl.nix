@@ -15,7 +15,7 @@
   ];
 
   programs.bash = {
-    # bashrcExtra = lib.fileContents /home/jonas/dotfiles/bash/bashrc-arch;
+    bashrcExtra = lib.fileContents ./dotfiles/bash/bashrc-wsl;
   };
 
   programs.neovim = {

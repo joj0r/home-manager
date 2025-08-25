@@ -28,7 +28,6 @@
     cargo # Installed for rnix_lsp
 
     # Passwordstore with git-integration
-    pinentry-tty
     pass
     pass-git-helper
 

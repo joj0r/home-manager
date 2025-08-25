@@ -64,6 +64,10 @@
     pulse.enable = true;
   };
 
+  programs.gnupg.agent = {
+    pinentryPackage = pkgs.pinentry-gnome3;
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
@@ -75,6 +79,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    pinentry-gnome3
   ];
 
 }

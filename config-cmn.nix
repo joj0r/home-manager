@@ -63,15 +63,11 @@ in
 
     # Passwordstore with git-integration
     gnupg
-    pinentry-tty
-    pinentry-curses
-
   ];
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    # pinentryPackage = pkgs.pinentry-curses;
     settings = {
       max-cache-ttl = 60480000;
       default-cache-ttl = 60480000;

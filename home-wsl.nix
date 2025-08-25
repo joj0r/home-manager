@@ -46,7 +46,15 @@
   # plain files is through 'home.file'.
   home.file = {
 
-  ".npmrc".source = dotfiles/npmrc;
+    ".npmrc".source = dotfiles/npmrc;
+    ".taskrc".text = ''
+      include /etc/nixos/dotfiles/taskrc
+      # Files
+      data.location=/home/jonas/.task
+      sync.local.server_dir=/mnt/c/Users/nojojo/Nextcloud/Tasks
+      news.version=3.3.0
+    '';
+    "notes/vimwiki".source = config.lib.file.mkOutOfStoreSymlink "/mnt/c/Users/nojojo/Nextcloud/Notes/vimwiki/";
 
   };
 

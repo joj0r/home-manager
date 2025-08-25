@@ -88,8 +88,6 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    ".taskrc".source = dotfiles/taskrc;
-
     ".config/pass-git-helper/git-pass-mapping.ini".source = dotfiles/git-pass-mapping.ini;
 
     # Kitty
